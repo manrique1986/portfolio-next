@@ -3,6 +3,7 @@
 import React, { useEffect } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import Image from "next/image";
 
 const Skills = () => {
   useEffect(() => {
@@ -89,7 +90,13 @@ const Skills = () => {
             className="flex flex-col items-center bg-gray-800 p-6 rounded-3xl shadow-lg transition-transform transform hover:scale-110 hover:rotate-2 hover:-translate-y-2 hover:shadow-teal-400 hover:border-teal-400 border-2 border-teal-600 shadow-teal-600 duration-300"
             data-aos={skill.aos}
           >
-            <img className="h-20 w-20 mb-4 transition-transform transform hover:scale-125 duration-300" src={skill.imgSrc} alt={skill.name} />
+            <Image
+              className="mb-4 transition-transform transform hover:scale-125 duration-300"
+              src={skill.imgSrc}
+              alt={skill.name}
+              width={80} // Especifica el ancho
+              height={80} // Especifica la altura
+            />
             <p className="text-xl font-extrabold text-teal-400">{skill.name}</p>
           </div>
         ))}
