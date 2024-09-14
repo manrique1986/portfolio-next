@@ -61,6 +61,9 @@ export default function Header() {
           <Link href="/skills" className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
             Skills
           </Link>
+          <Link href="/contacto" className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
+            Contacto
+          </Link>
         </div>
       </nav>
     </header>
