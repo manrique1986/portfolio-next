@@ -41,16 +41,7 @@ const Contact = () => {
 
   return (
     <div className="relative bg-gray-900 text-white min-h-screen">
-      {/* Video de fondo */}
-      <video 
-        autoPlay 
-        loop 
-        muted 
-        className="absolute inset-0 w-full h-full object-cover"
-      >
-        <source src="https://www.example.com/your-background-video.mp4" type="video/mp4" />
-        Tu navegador no soporta el video.
-      </video>
+    
 
       {/* Contenido */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-8">
