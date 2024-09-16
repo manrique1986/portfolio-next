@@ -1,4 +1,5 @@
 "use client"
+
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -7,6 +8,10 @@ export default function Header() {
 
   const toggleMenu = () => {
     setIsOpen(!isOpen);
+  };
+
+  const closeMenu = () => {
+    setIsOpen(false);
   };
 
   return (
@@ -40,7 +45,7 @@ export default function Header() {
         {isOpen && (
           <div
             className="fixed inset-0 bg-black bg-opacity-50 z-10 transition-opacity duration-300"
-            onClick={toggleMenu}
+            onClick={closeMenu}
           ></div>
         )}
         {/* Menú */}
@@ -49,19 +54,19 @@ export default function Header() {
             isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
           } md:opacity-100 md:translate-x-0`}
         >
-          <Link href="/sobreMi" className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
+          <Link href="/sobreMi" onClick={closeMenu} className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
             Sobre mí
           </Link>
-          <Link href="/educacion" className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
+          <Link href="/educacion" onClick={closeMenu} className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
             Educación
           </Link>
-          <Link href="/proyectos" className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
+          <Link href="/proyectos" onClick={closeMenu} className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
             Proyectos
           </Link>
-          <Link href="/skills" className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
+          <Link href="/skills" onClick={closeMenu} className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
             Skills
           </Link>
-          <Link href="/contacto" className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
+          <Link href="/contacto" onClick={closeMenu} className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
             Contacto
           </Link>
         </div>

@@ -2,11 +2,14 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Usar 'next/navigation' para enrutamiento
-// import emailjs from "@emailjs/browser";
 import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
 import PropagateLoader from "react-spinners/PropagateLoader";
 import AOS from "aos";
 import "aos/dist/aos.css";
+
+
+
+
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
@@ -39,10 +42,10 @@ const Contact = () => {
   return (
     <div className="relative bg-gray-900 text-white min-h-screen">
       {/* Video de fondo */}
-      <video
-        autoPlay
-        loop
-        muted
+      <video 
+        autoPlay 
+        loop 
+        muted 
         className="absolute inset-0 w-full h-full object-cover"
       >
         <source src="https://www.example.com/your-background-video.mp4" type="video/mp4" />
@@ -72,64 +75,64 @@ const Contact = () => {
               target="_blank"
               rel="noopener noreferrer"
             >
-              <div className="float-right">
-                <FaWhatsapp className="w-[45px] h-[45px] p-2 hover:cursor-pointer hover:text-[#0df053] hover:bg-white bg-[#0df053] text-white rounded-[50px]" />
+              <div className="float-right mb-4">
+                <FaWhatsapp className="w-[45px] h-[45px] p-2 hover:cursor-pointer hover:text-[#0df053] hover:bg-white bg-[#0df053] text-white rounded-full" />
               </div>
             </a>
-            <h3 className="text-[#EB3A00] text-2xl font-semibold mb-6">
+            <h3 className="text-teal-400 text-2xl font-semibold mb-6">
               Leandro Martini
             </h3>
 
             <div className="flex items-center mb-6">
-              <FaEnvelope className="text-2xl mr-4 text-[#F7B200]" />
+              <FaEnvelope className="text-2xl mr-4 text-teal-400" />
               <p className="text-white">leandromartini86@gmail.com</p>
             </div>
 
             <div className="flex items-center mb-6">
-              <FaPhone className="text-2xl mr-4 text-[#F7B200]" />
+              <FaPhone className="text-2xl mr-4 text-teal-400" />
               <p className="text-white">(11) 3037-4277</p>
             </div>
 
-            <form ref={form}  data-aos="fade-up">
+            <form ref={form} data-aos="fade-up">
               <div className="mb-4">
-                <label className="block text-sm font-semibold text-[#F7B200]">
+                <label className="block text-sm font-semibold text-teal-400">
                   Nombre:
                 </label>
                 <input
                   type="text"
                   name="user_name"
-                  className="w-full p-2 border rounded-md bg-[#1e1e1e] text-white border-[#F7B200]"
+                  className="w-full p-2 border rounded-md bg-gray-900 text-white border-teal-400"
                   required
                 />
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm font-semibold text-[#F7B200]">
+                <label className="block text-sm font-semibold text-teal-400">
                   Correo electrónico:
                 </label>
                 <input
                   type="email"
                   name="user_email"
-                  className="w-full p-2 border rounded-md bg-[#1e1e1e] text-white border-[#F7B200]"
+                  className="w-full p-2 border rounded-md bg-gray-900 text-white border-teal-400"
                   required
                 />
               </div>
 
               <div className="mb-4">
-                <label className="block text-sm font-semibold text-[#F7B200]">
+                <label className="block text-sm font-semibold text-teal-400">
                   Mensaje:
                 </label>
                 <textarea
                   name="message"
                   rows="4"
-                  className="w-full p-2 border rounded-md bg-[#1e1e1e] text-white border-[#F7B200]"
+                  className="w-full p-2 border rounded-md bg-gray-900 text-white border-teal-400"
                   required
                 />
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-[#EB3A00] text-white px-4 py-2 rounded-md hover:bg-[#F7B200] transition-colors duration-300"
+                className="w-full bg-teal-400 text-white px-4 py-2 rounded-md hover:bg-teal-600 transition-colors duration-300"
               >
                 Enviar
               </button>
