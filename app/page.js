@@ -9,7 +9,8 @@ export default function Home() {
           ¡Bienvenido a mi <span className="text-teal-400">Portfolio</span>!
         </h1>
         <p className="text-lg md:text-xl">
-          Aquí puedes explorar más sobre mí, mi educación, proyectos y habilidades. 
+          Aquí puedes explorar más sobre mí, mi educación, proyectos y habilidades.  y hay masss
+          
         </p>
       </div>
 
