@@ -9,8 +9,7 @@ export default function Home() {
           ¡Bienvenido a mi <span className="text-teal-400">Portfolio</span>!
         </h1>
         <p className="text-lg md:text-xl">
-          Aquí puedes explorar más sobre mí, mi educación, proyectos y habilidades.  y hay masss ponele
-
+          Aquí puedes explorar más sobre mí, mi educación, proyectos y habilidades.
         </p>
       </div>
 
@@ -19,9 +18,9 @@ export default function Home() {
         <Image 
           src="https://res.cloudinary.com/dytpump6i/image/upload/v1726272963/imagen-perfil-dibu_cja6iz.png" 
           alt="Imagen de perfil"
-          width={300}  // Tamaño ajustado para mobile
-          height={200} // Tamaño ajustado para mobile
-          className="rounded-lg shadow-2xl object-cover "
+          width={300}  
+          height={200}
+          className="rounded-lg shadow-2xl object-cover opacity-60" // Ajusta aquí la opacidad de la imagen
         />
         {/* Efecto de overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent rounded-lg opacity-40"></div>
