@@ -1,5 +1,11 @@
 import Image from "next/image";
 
+
+export const metadata ={
+  title: "Portfolio-Leandro Martini",
+  description: "Portfolio personal"
+}
+
 export default function Home() {
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-8">
