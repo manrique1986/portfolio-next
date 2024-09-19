@@ -7,7 +7,7 @@ import { motion } from "framer-motion"; // Para animaciones
 const index = () => {
   return (
 
-      <div className="relative bg-gray-900 text-white min-h-screen">
+      <div className="relative bg-gray-900 text-white min-h-screen z-0">
         {/* Video de fondo */}
         <video 
           autoPlay 

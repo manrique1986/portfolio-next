@@ -15,16 +15,14 @@ export default function Header() {
   };
 
   useEffect(() => {
-    // Fijar el cuerpo cuando el menú está abierto
     if (isOpen) {
       document.body.style.overflow = 'hidden';
     } else {
-      document.body.style.overflow = 'auto'; // Cambia a 'auto'
+      document.body.style.overflow = 'auto';
     }
 
-    // Limpieza al desmontar
     return () => {
-      document.body.style.overflow = 'auto'; // Cambia a 'auto'
+      document.body.style.overflow = 'auto';
     };
   }, [isOpen]);
 
@@ -55,6 +53,7 @@ export default function Header() {
             />
           </svg>
         </button>
+        
         {/* Fondo semitransparente cuando el menú está abierto */}
         {isOpen && (
           <div
@@ -62,6 +61,7 @@ export default function Header() {
             onClick={closeMenu}
           ></div>
         )}
+
         {/* Menú */}
         <div
           className={`md:flex md:items-center z-50 md:static absolute top-16 left-0 w-3/4 bg-gray-800 md:bg-transparent p-8 md:p-0 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out ${

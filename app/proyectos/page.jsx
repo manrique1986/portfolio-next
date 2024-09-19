@@ -20,7 +20,7 @@ const Proyectos = () => {
   };
 
   return (
-    <div className="bg-gray-900 text-white min-h-screen py-8">
+    <div className="bg-gray-900 text-white min-h-screen py-8 z-0">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}

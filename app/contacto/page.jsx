@@ -40,7 +40,7 @@ const Contact = () => {
   // };
 
   return (
-    <div className="relative bg-gray-900 text-white min-h-screen">
+    <div className="relative bg-gray-900 text-white min-h-screen z-0">
     
 
       {/* Contenido */}
