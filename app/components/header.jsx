@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function Header() {
   const [isOpen, setIsOpen] = useState(false);
@@ -13,6 +13,20 @@ export default function Header() {
   const closeMenu = () => {
     setIsOpen(false);
   };
+
+  useEffect(() => {
+    // Fijar el cuerpo cuando el menú está abierto
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'auto'; // Cambia a 'auto'
+    }
+
+    // Limpieza al desmontar
+    return () => {
+      document.body.style.overflow = 'auto'; // Cambia a 'auto'
+    };
+  }, [isOpen]);
 
   return (
     <header className="bg-gray-900 text-white p-4 shadow-lg">
@@ -50,9 +64,10 @@ export default function Header() {
         )}
         {/* Menú */}
         <div
-          className={`md:flex md:items-center z-50 md:static absolute top-16 right-0 w-3/4 bg-gray-800 md:bg-transparent p-8 md:p-0 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out ${
-            isOpen ? 'translate-x-0 opacity-100' : 'translate-x-full opacity-0'
+          className={`md:flex md:items-center z-50 md:static absolute top-16 left-0 w-3/4 bg-gray-800 md:bg-transparent p-8 md:p-0 rounded-lg shadow-lg transform transition-all duration-300 ease-in-out ${
+            isOpen ? 'translate-x-0 opacity-100' : '-translate-x-full opacity-0'
           } md:opacity-100 md:translate-x-0`}
+          style={{ maxHeight: 'calc(100vh - 64px)', overflowY: 'auto' }} // Limitar altura del menú
         >
           <Link href="/sobreMi" onClick={closeMenu} className="block text-lg md:inline-block mt-2 md:mt-0 md:ml-6 hover:text-gray-400 transition duration-300">
             Sobre mí
