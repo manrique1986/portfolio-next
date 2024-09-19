@@ -4,45 +4,70 @@ import React, { useRef, useState, useEffect } from "react";
 import { useRouter } from "next/navigation"; // Usar 'next/navigation' para enrutamiento
 import { FaEnvelope, FaPhone, FaWhatsapp } from "react-icons/fa";
 import PropagateLoader from "react-spinners/PropagateLoader";
+import emailjs from "@emailjs/browser";
 import AOS from "aos";
 import "aos/dist/aos.css";
-
-
-
-
+import Swal from 'sweetalert2';
 
 const Contact = () => {
   const [loading, setLoading] = useState(false);
-  // const router = useRouter();
+  const router = useRouter(); // Descomentar esta línea
   const form = useRef();
 
   useEffect(() => {
     AOS.init({ duration: 1000, once: true });
   }, []);
 
-  // const sendEmail = async (e) => {
-  //   e.preventDefault();
-  //   try {
-  //     await emailjs.sendForm(
-  //       process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
-  //       process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
-  //       form.current,
-  //       process.env.NEXT_PUBLIC_EMAILJS_USER_ID
-  //     );
-  //     setLoading(true);
-  //     setTimeout(() => {
-  //       setLoading(false);
-  //       router.push("/contacto"); // Usar 'next/navigation' para enrutamiento
-  //     }, 3000);
-  //   } catch (error) {
-  //     console.error("Error sending email:", error);
-  //   }
-  // };
+  const sendEmail = async (e) => {
+    e.preventDefault();
+    try {
+      await emailjs.sendForm(
+        process.env.NEXT_PUBLIC_EMAILJS_SERVICE_ID,
+        process.env.NEXT_PUBLIC_EMAILJS_TEMPLATE_ID,
+        form.current,
+        process.env.NEXT_PUBLIC_EMAILJS_USER_ID
+      );
+      setLoading(true);
+
+      // Mostrar SweetAlert2
+      Swal.fire({
+        icon: 'success',
+        title: '¡Correo enviado!',
+        text: 'Tu mensaje ha sido enviado con éxito.',
+        background: '#1f2937', // Color de fondo
+        color: '#ffffff', // Color del texto
+        confirmButtonColor: '#38b2ac', // Color del botón
+        customClass: {
+          title: 'text-teal-400', // Clase personalizada para el título
+          text: 'text-white' // Clase personalizada para el texto
+        }
+      });
+
+      setTimeout(() => {
+        setLoading(false);
+        router.push("/contacto"); // Usar 'next/navigation' para enrutamiento
+      }, 3000);
+    } catch (error) {
+      console.error("Error sending email:", error);
+
+      // Mostrar SweetAlert2 de error
+      Swal.fire({
+        icon: 'error',
+        title: 'Error',
+        text: 'Hubo un problema al enviar tu mensaje. Inténtalo de nuevo.',
+        background: '#1f2937',
+        color: '#ffffff',
+        confirmButtonColor: '#38b2ac',
+        customClass: {
+          title: 'text-teal-400',
+          text: 'text-white'
+        }
+      });
+    }
+  };
 
   return (
     <div className="relative bg-gray-900 text-white min-h-screen z-0">
-    
-
       {/* Contenido */}
       <div className="relative z-10 flex flex-col items-center justify-center min-h-screen p-8">
         {/* Encabezado */}
@@ -84,7 +109,7 @@ const Contact = () => {
               <p className="text-white">(11) 3037-4277</p>
             </div>
 
-            <form ref={form} data-aos="fade-up">
+            <form ref={form} onSubmit={sendEmail} data-aos="fade-up">
               <div className="mb-4">
                 <label className="block text-sm font-semibold text-teal-400">
                   Nombre:
