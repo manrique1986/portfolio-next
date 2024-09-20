@@ -17,7 +17,9 @@ export const metadata = {
   title: "Leandro Martini",
   description: "Portfolio personal",
   keywords: ["leandro martini", "dev", "desarrollador", "Leandro Martini"],
-  authors: ["Leandro Martini"]
+  openGraph: {
+    authors: ["Leandro Martini"],
+  },
 };
 
 export default function RootLayout({ children }) {
