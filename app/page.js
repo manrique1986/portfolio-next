@@ -1,12 +1,19 @@
+"use client";
+
 import Image from "next/image";
 
 
-export const metadata ={
-  title: "Portfolio-Leandro Martini",
-  description: "Portfolio personal"
-}
 
 export default function Home() {
+  const handleClick = () => {
+    if (typeof window !== "undefined" && typeof window.fbq === "function") {
+      window.fbq("trackCustom", "ConoceMasClick");
+      console.log("Evento 'ConoceMasClick' enviado.");
+    } else {
+      console.log("fbq no está disponible todavía.");
+    }
+  };
+
   return (
     <div className="bg-gray-900 text-white min-h-screen flex flex-col items-center justify-center p-8">
       {/* Título y descripción */}
@@ -26,15 +33,18 @@ export default function Home() {
           alt="Imagen de perfil"
           width={300}  
           height={200}
-          className="rounded-lg shadow-2xl object-cover opacity-60" // Ajusta aquí la opacidad de la imagen
+          className="rounded-lg shadow-2xl object-cover opacity-60"
         />
-        {/* Efecto de overlay */}
         <div className="absolute inset-0 bg-gradient-to-t from-gray-900 via-transparent to-transparent rounded-lg opacity-40"></div>
       </div>
 
       {/* Botón de acción */}
       <div className="flex justify-center w-full mt-8">
-        <a href="/sobreMi" className="bg-teal-400 text-gray-900 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-teal-500 transition duration-300">
+        <a
+          href="/sobreMi"
+          onClick={handleClick}
+          className="bg-teal-400 text-gray-900 px-6 py-3 rounded-lg text-lg font-semibold hover:bg-teal-500 transition duration-300"
+        >
           Conóceme más
         </a>
       </div>

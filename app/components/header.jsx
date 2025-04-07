@@ -27,8 +27,8 @@ export default function Header() {
   }, [isOpen]);
 
   return (
-    <header className="bg-gray-900 text-white p-4 shadow-lg">
-      <nav className="container mx-auto flex justify-between items-center">
+    <header className="bg-gray-900 text-white p-4 shadow-lg ">
+      <nav className=" container mx-auto flex justify-between items-center">
         {/* Logo */}
         <Link href="/" className="text-3xl font-bold tracking-wide hover:text-gray-400 transition duration-300">
           Portfolio
